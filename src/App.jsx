@@ -21,7 +21,6 @@ function App() {
         </div>
       </div>
       <div>
-        <div></div>
         <div>
           <form>
             <div className="mb-3">
@@ -49,6 +48,17 @@ function App() {
             </button>
           </form>
         </div>
+        <div>
+          <div>
+            <div className="d-flex justify-content-between">
+              <p className="text_color">All <span class="badge text-bg-secondary mx-1 rounded-pill">4</span></p>
+              <p className="text_color">Completed <span class="badge text-bg-secondary mx-1 rounded-pill">4</span></p>
+              <p className="text_color">Open <span class="badge text-bg-secondary mx-1 rounded-pill">4</span></p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </>
   );
