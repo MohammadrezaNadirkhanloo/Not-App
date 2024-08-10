@@ -36,7 +36,7 @@ button > i {
 }
 
 .Description{
-  width: 30vw;
+  width: 20vw;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
