@@ -20,7 +20,36 @@ function App() {
           </select>
         </div>
       </div>
-      <div></div>
+      <div>
+        <div></div>
+        <div>
+          <form>
+            <div className="mb-3">
+              <label for="Notetitle" className="form-label text_color">
+                Note Title
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="Notetitle"
+              />
+            </div>
+            <div className="mb-3">
+              <label for="Description" className="form-label text_color">
+                Description:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="Description"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Add new Note
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 }
