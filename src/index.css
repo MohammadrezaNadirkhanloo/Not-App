@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --primery-background-color: #011936;
+  --primery-background-input: #0f4c75;
+  --primery-text-input: #eeeeee;
+  --primery-text: #bcc8d5;
+  --primery-theme: #c2eabd;
+}
+
+body {
+  background-color: var(--primery-background-color);
+}
+
+.text_color{
+    color: var(--primery-text);
+}
+
+.bg_input{
+    background-color: var(--primery-background-input);
+}
