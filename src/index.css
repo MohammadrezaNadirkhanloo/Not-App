@@ -15,10 +15,29 @@ body {
   background-color: var(--primery-background-color);
 }
 
-.text_color{
-    color: var(--primery-text);
+button > i {
+  pointer-events: none;
 }
 
-.bg_input{
-    background-color: var(--primery-background-input);
+.text_color {
+  color: var(--primery-text);
+}
+
+.bg_input {
+  background-color: var(--primery-background-input);
+}
+
+.border_color {
+  border-color: var(--primery-background-input) !important;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.Description{
+  width: 30vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
