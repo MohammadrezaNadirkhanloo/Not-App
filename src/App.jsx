@@ -9,7 +9,7 @@ function App() {
         </div>
         <div data-bs-theme="dark" className="col-lg-2">
           <select
-            class="form-select bg_input border-0 "
+            class="form-select bg_input border-0 cursor"
             aria-label="Default select example"
           >
             <option selected value="1">
@@ -24,16 +24,16 @@ function App() {
         <div className="col-12 col-lg-6">
           <form>
             <div className="mb-3">
-              <label for="Notetitle" className="form-label text_color">
+              <label for="Notetitle" className="form-label text_color fw-semibold">
                 Note Title
               </label>
-              <input type="text" className="form-control" id="Notetitle" />
+              <input type="text" className="form-control bg_input border-0 text-white" id="Notetitle" />
             </div>
             <div className="mb-3">
-              <label for="Description" className="form-label text_color">
+              <label for="Description" className="form-label text_color fw-semibold">
                 Description:
               </label>
-              <input type="text" className="form-control" id="Description" />
+              <input type="text" className="form-control bg_input border-0 text-white" id="Description" />
             </div>
             <button type="submit" className="btn btn-primary">
               Add new Note
@@ -67,8 +67,8 @@ function App() {
                 <button className="btn btn-outline-danger border-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="23"
-                    height="23"
+                    width="22"
+                    height="22"
                     fill="currentColor"
                     class="bi bi-trash3"
                     viewBox="0 0 16 16"

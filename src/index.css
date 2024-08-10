@@ -25,6 +25,9 @@ button > i {
 
 .bg_input {
   background-color: var(--primery-background-input);
+  &:focus{
+    background-color: var(--primery-background-input);
+  }
 }
 
 .border_color {
