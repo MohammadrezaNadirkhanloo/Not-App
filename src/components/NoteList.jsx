@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function NoteList({ nots, onDelete, onComplet }) {
   return (
     <div>
@@ -34,21 +32,16 @@ function NoteList({ nots, onDelete, onComplet }) {
 export default NoteList;
 
 function ItemNote({ note, onDelete, onComplet }) {
-  const [check, setCheck] = useState(false);
   return (
     <div className="m-3 border border-2 rounded-4 border_color p-3">
       <div className="d-flex justify-content-between">
-        <div className="d-flex flex-column">
-          <p
-            className={`fw-bold fs-4 text_color mb-1 ${
-              note.complete ? "text-decoration-line-through " : ""
-            }`}
-          >
-            {note.title}
-          </p>
-          <p className="fw-semibold fs-6 text_color Description">
-            {note.description}
-          </p>
+        <div
+          className={`d-flex flex-column text_color ${
+            note.complete ? "text-decoration-line-through " : ""
+          }`}
+        >
+          <p className="fw-bold fs-4  mb-1">{note.title}</p>
+          <p className="fw-semibold fs-6 Description">{note.description}</p>
         </div>
         <div className="d-flex align-items-center gap-2">
           <button
