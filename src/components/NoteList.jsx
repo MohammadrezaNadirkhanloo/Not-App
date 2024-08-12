@@ -1,4 +1,4 @@
-function NoteList({ nots }) {
+function NoteList({ nots,onDelete }) {
   return (
     <div>
       <div className="d-flex justify-content-between">
@@ -17,7 +17,7 @@ function NoteList({ nots }) {
       </div>
       <div>
         {nots.map((item) => (
-          <ItemNote key={item} note={item} />
+          <ItemNote key={item.id} note={item} onDelete={onDelete} />
         ))}
       </div>
     </div>
@@ -26,18 +26,21 @@ function NoteList({ nots }) {
 
 export default NoteList;
 
-function ItemNote({ note }) {
+function ItemNote({ note,onDelete }) {
   return (
     <div className="m-3 border border-2 rounded-4 border_color p-3">
       <div className="d-flex justify-content-between">
         <div className="d-flex flex-column">
           <p className="fw-bold fs-4 text_color mb-1">{note.title}</p>
           <p className="fw-semibold fs-6 text_color Description">
-            {note.description}{" "}
+            {note.description}
           </p>
         </div>
         <div className="d-flex align-items-center gap-2">
-          <button className="btn btn-outline-danger border-0">
+          <button
+            onClick={() => onDelete(note.id)}
+            className="btn btn-outline-danger border-0"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"

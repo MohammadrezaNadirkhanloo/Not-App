@@ -8,6 +8,10 @@ function App() {
   const handleAddNote = (newNote) => {
     setListNote((item) => [...item, newNote]);
   };
+
+  const handleDelete = (id) => {
+    setListNote((pervNote) => pervNote.filter((item) => item.id !== id));
+  };
   return (
     <>
       <div className="row pt-5 pb-3 mb-5 border-bottom align-items-center g-3">
@@ -32,7 +36,7 @@ function App() {
           <AddNewNoteForm onAddNote={handleAddNote} />
         </div>
         <div className="col-12 col-lg-6">
-          <NoteList nots={listNote} />
+          <NoteList nots={listNote} onDelete={handleDelete} />
         </div>
       </div>
     </>
