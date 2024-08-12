@@ -18,7 +18,7 @@ function ShowStatus({ datas }) {
         <p className="text_color fw-semibold">
           Open{" "}
           <span className="badge text-bg-secondary mx-1 rounded-pill">
-            0
+            {datas.length - dataCompleted.length}
           </span>
         </p>
       </div>
