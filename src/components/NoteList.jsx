@@ -1,4 +1,6 @@
-function NoteList({ nots,onDelete }) {
+import { useState } from "react";
+
+function NoteList({ nots, onDelete, onComplet }) {
   return (
     <div>
       <div className="d-flex justify-content-between">
@@ -17,7 +19,12 @@ function NoteList({ nots,onDelete }) {
       </div>
       <div>
         {nots.map((item) => (
-          <ItemNote key={item.id} note={item} onDelete={onDelete} />
+          <ItemNote
+            key={item.id}
+            note={item}
+            onDelete={onDelete}
+            onComplet={onComplet}
+          />
         ))}
       </div>
     </div>
@@ -26,12 +33,19 @@ function NoteList({ nots,onDelete }) {
 
 export default NoteList;
 
-function ItemNote({ note,onDelete }) {
+function ItemNote({ note, onDelete, onComplet }) {
+  const [check, setCheck] = useState(false);
   return (
     <div className="m-3 border border-2 rounded-4 border_color p-3">
       <div className="d-flex justify-content-between">
         <div className="d-flex flex-column">
-          <p className="fw-bold fs-4 text_color mb-1">{note.title}</p>
+          <p
+            className={`fw-bold fs-4 text_color mb-1 ${
+              note.complete ? "text-decoration-line-through " : ""
+            }`}
+          >
+            {note.title}
+          </p>
           <p className="fw-semibold fs-6 text_color Description">
             {note.description}
           </p>
@@ -55,7 +69,9 @@ function ItemNote({ note,onDelete }) {
           <input
             className="form-check-input fs-5 cars cursor"
             type="checkbox"
-            id="checkboxNoLabel"
+            checked={note.complete}
+            id={note.id}
+            onChange={() => onComplet(note.id)}
           />
         </div>
       </div>
