@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-function AddNewNoteForm() {
+function AddNewNoteForm({ onAddNote }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!title || !description) return null;
+
     const newData = {
       title,
       description,
@@ -13,13 +16,18 @@ function AddNewNoteForm() {
       complete: false,
       createDate: new Date().toISOString(),
     };
-    console.log(newData);
+    onAddNote(newData);
+    setTitle("");
+    setDescription("");
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="Notetitle" className="form-label text_color fw-semibold">
+          <label
+            htmlFor="Notetitle"
+            className="form-label text_color fw-semibold"
+          >
             Note Title
           </label>
           <input

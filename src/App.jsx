@@ -1,6 +1,12 @@
+import { useState } from "react";
 import AddNewNoteForm from "./components/AddNewNoteForm";
 
 function App() {
+  const [listNote, setListNote] = useState([]);
+
+  const handleAddNote = (newNote) => {
+    setListNote((item) => [...item, newNote]);
+  };
   return (
     <>
       <div className="row pt-5 pb-3 mb-5 border-bottom align-items-center g-3">
@@ -14,9 +20,7 @@ function App() {
             className="form-select bg_input border-0 cursor"
             aria-label="Default select example"
           >
-            <option selected value="1">
-              One
-            </option>
+            <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
@@ -24,21 +28,27 @@ function App() {
       </div>
       <div className="row g-5">
         <div className="col-12 col-lg-6">
-          <AddNewNoteForm />
+          <AddNewNoteForm onAddNote={handleAddNote} />
         </div>
         <div className="col-12 col-lg-6">
           <div className="d-flex justify-content-between">
             <p className="text_color fw-semibold">
               All{" "}
-              <span className="badge text-bg-secondary mx-1 rounded-pill">4</span>
+              <span className="badge text-bg-secondary mx-1 rounded-pill">
+                4
+              </span>
             </p>
             <p className="text_color fw-semibold">
               Completed{" "}
-              <span className="badge text-bg-secondary mx-1 rounded-pill">4</span>
+              <span className="badge text-bg-secondary mx-1 rounded-pill">
+                4
+              </span>
             </p>
             <p className="text_color fw-semibold">
               Open{" "}
-              <span className="badge text-bg-secondary mx-1 rounded-pill">4</span>
+              <span className="badge text-bg-secondary mx-1 rounded-pill">
+                4
+              </span>
             </p>
           </div>
           <div className="mx-3 border border-2 rounded-4 border_color p-3">
