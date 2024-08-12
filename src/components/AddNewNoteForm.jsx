@@ -1,12 +1,30 @@
+import { useState } from "react";
+
 function AddNewNoteForm() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newData = {
+      title,
+      description,
+      id: Date.now(),
+      complete: false,
+      createDate: new Date().toISOString(),
+    };
+    console.log(newData);
+  };
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label for="Notetitle" className="form-label text_color fw-semibold">
+          <label htmlFor="Notetitle" className="form-label text_color fw-semibold">
             Note Title
           </label>
           <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             type="text"
             className="form-control bg_input border-0 text-white"
             autoComplete="off"
@@ -15,12 +33,14 @@ function AddNewNoteForm() {
         </div>
         <div className="mb-3">
           <label
-            for="Description"
+            htmlFor="Description"
             className="form-label text_color fw-semibold"
           >
             Description:
           </label>
           <input
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             type="text"
             className="form-control bg_input border-0 text-white"
             autoComplete="off"
