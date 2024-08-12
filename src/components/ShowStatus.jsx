@@ -1,5 +1,5 @@
 function ShowStatus({ datas }) {
-  
+  const dataCompleted = datas.filter((item) => item.complete === true);
   return (
     <div>
       <div className="d-flex justify-content-between">
@@ -12,7 +12,7 @@ function ShowStatus({ datas }) {
         <p className="text_color fw-semibold">
           Completed{" "}
           <span className="badge text-bg-secondary mx-1 rounded-pill">
-            4
+            {dataCompleted.length}
           </span>
         </p>
         <p className="text_color fw-semibold">
