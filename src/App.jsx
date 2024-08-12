@@ -32,7 +32,7 @@ function App() {
           <AddNewNoteForm onAddNote={handleAddNote} />
         </div>
         <div className="col-12 col-lg-6">
-          <NoteList />
+          <NoteList nots={listNote} />
         </div>
       </div>
     </>
