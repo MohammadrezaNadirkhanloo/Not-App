@@ -28,7 +28,7 @@ export default NoteList;
 
 function ItemNote({ note }) {
   return (
-    <div className="mx-3 border border-2 rounded-4 border_color p-3">
+    <div className="m-3 border border-2 rounded-4 border_color p-3">
       <div className="d-flex justify-content-between">
         <div className="d-flex flex-column">
           <p className="fw-bold fs-4 text_color mb-1">{note.title}</p>
