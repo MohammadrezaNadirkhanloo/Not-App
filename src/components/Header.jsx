@@ -1,9 +1,10 @@
-function Header({datas}) {
+function Header({ datas }) {
+  const allData = datas.length;
   return (
     <>
       <div className="col-lg-10">
         <h1 className="text_color m-0">
-          My Note: <span>{datas.length}</span>
+          My Note: <span>{allData}</span>
         </h1>
       </div>
       <div data-bs-theme="dark" className="col-lg-2">
