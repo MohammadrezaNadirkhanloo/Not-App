@@ -1,6 +1,6 @@
 function ShowStatus({ datas }) {
   const allData = datas.length;
-  const dataCompleted = datas.filter((item) => item.complete === true);
+  const dataCompleted = datas.filter((item) => item.complete === true).length;
 
   if (!allData) return <h2 className="text_color">NO Nots,,</h2>;
 
@@ -16,13 +16,13 @@ function ShowStatus({ datas }) {
         <p className="text_color fw-semibold">
           Completed{" "}
           <span className="badge text-bg-secondary mx-1 rounded-pill">
-            {dataCompleted.length}
+            {dataCompleted}
           </span>
         </p>
         <p className="text_color fw-semibold">
           Open{" "}
           <span className="badge text-bg-secondary mx-1 rounded-pill">
-            {allData - dataCompleted.length}
+            {allData - dataCompleted}
           </span>
         </p>
       </div>
