@@ -5,6 +5,7 @@ import Header from "./components/Header";
 
 function App() {
   const [listNote, setListNote] = useState([]);
+  const [sort, setSort] = useState("1");
 
   const handleAddNote = (newNote) => {
     setListNote((item) => [...item, newNote]);
@@ -24,7 +25,11 @@ function App() {
   return (
     <>
       <div className="row pt-5 pb-3 mb-5 border-bottom align-items-center g-3">
-        <Header datas={listNote} />
+        <Header
+          datas={listNote}
+          sortBy={sort}
+          sorthHandle={(e) => setSort(e.target.value)}
+        />
       </div>
       <div className="row g-5">
         <div className="col-12 col-lg-6">

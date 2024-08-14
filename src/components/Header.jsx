@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-function Header({ datas }) {
-  const [sort, setSort] = useState("1");
+function Header({ datas, sortBy, sorthHandle }) {
   const allData = datas.length;
 
   return (
@@ -15,8 +14,8 @@ function Header({ datas }) {
         <select
           className="form-select bg_input border-0 cursor"
           aria-label="Default select example"
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
+          value={sortBy}
+          onChange={sorthHandle}
         >
           <option value="1">Lastest</option>
           <option value="2">Earliest</option>
