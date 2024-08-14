@@ -1,4 +1,5 @@
 function ShowStatus({ datas }) {
+  const allData = datas.length;
   const dataCompleted = datas.filter((item) => item.complete === true);
   return (
     <div>
@@ -6,7 +7,7 @@ function ShowStatus({ datas }) {
         <p className="text_color fw-semibold">
           All{" "}
           <span className="badge text-bg-secondary mx-1 rounded-pill">
-            {datas.length}
+            {allData}
           </span>
         </p>
         <p className="text_color fw-semibold">
@@ -18,7 +19,7 @@ function ShowStatus({ datas }) {
         <p className="text_color fw-semibold">
           Open{" "}
           <span className="badge text-bg-secondary mx-1 rounded-pill">
-            {datas.length - dataCompleted.length}
+            {allData - dataCompleted.length}
           </span>
         </p>
       </div>
