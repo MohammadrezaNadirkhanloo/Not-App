@@ -19,7 +19,6 @@ function Header({ datas, sortBy, sorthHandle }) {
         >
           <option value="1">Lastest</option>
           <option value="2">Earliest</option>
-          <option value="3">Completed</option>
         </select>
       </div>
     </>

@@ -22,6 +22,21 @@ function App() {
       )
     );
   };
+
+  let sortDatasList = listNote;
+  switch (sort) {
+    case "1":
+      sortDatasList = [...sortDatasList].sort(
+        (a, b) => new Date(a.createDate) - new Date(b.createDate)
+      );
+      break;
+
+    default:
+      sortDatasList = [...sortDatasList].sort(
+        (a, b) => new Date(b.createDate) - new Date(a.createDate)
+      );
+      break;
+  }
   return (
     <>
       <div className="row pt-5 pb-3 mb-5 border-bottom align-items-center g-3">
@@ -37,7 +52,7 @@ function App() {
         </div>
         <div className="col-12 col-lg-6">
           <NoteList
-            nots={listNote}
+            nots={sortDatasList}
             onDelete={handleDelete}
             onComplet={handleComplet}
           />
