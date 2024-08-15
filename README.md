@@ -1,5 +1,6 @@
 # Not-App
 A simple NoteApp app built in React & Bootstrap.
+
 Your tasks can be filtered ( Lastest - Earliest ) and display the status .
 
  <div align="center">
