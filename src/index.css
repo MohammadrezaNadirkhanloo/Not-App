@@ -38,7 +38,7 @@ button > i {
   cursor: pointer;
 }
 
-.Description{
+.text_over{
   width: 20vw;
   overflow: hidden;
   white-space: nowrap;

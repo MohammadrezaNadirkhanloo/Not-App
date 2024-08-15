@@ -31,8 +31,8 @@ function ItemNote({ note, onDelete, onComplet }) {
             note.complete ? "text-decoration-line-through " : ""
           }`}
         >
-          <p className="fw-bold fs-4  mb-1">{note.title}</p>
-          <p className="fw-semibold fs-6 Description">{note.description}</p>
+          <p className="fw-bold fs-4  mb-1 text_over">{note.title}</p>
+          <p className="fw-semibold fs-6 text_over">{note.description}</p>
         </div>
         <div className="d-flex align-items-center gap-2">
           <button
