@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Header({ datas, sortBy, sorthHandle }) {
   const allData = datas.length;
 
