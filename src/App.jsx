@@ -1,26 +1,42 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import AddNewNoteForm from "./components/AddNewNoteForm";
 import NoteList from "./components/NoteList";
 import Header from "./components/Header";
 
+function handelReducer(state, action) {
+  switch (action.type) {
+    case "add": {
+      return [...state, action.payload];
+    }
+    case "delete": {
+      return state.filter((item) => item.id !== action.payload);
+    }
+    case "complete": {
+      return state.map((item) =>
+        item.id === action.payload
+          ? { ...item, complete: !item.complete }
+          : item
+      );
+    }
+    default:
+      throw new Error("unknown");
+  }
+}
+
 function App() {
-  const [listNote, setListNote] = useState([]);
+  const [listNote, dispatch] = useReducer(handelReducer, []);
   const [sort, setSort] = useState("1");
 
   const handleAddNote = (newNote) => {
-    setListNote((item) => [...item, newNote]);
+    dispatch({ type: "add", payload: newNote });
   };
 
   const handleDelete = (id) => {
-    setListNote((pervNote) => pervNote.filter((item) => item.id !== id));
+    dispatch({ type: "delete", payload: id });
   };
 
-  const handleComplet = (id) => {
-    setListNote((pervNote) =>
-      pervNote.map((item) =>
-        item.id === id ? { ...item, complete: !item.complete } : item
-      )
-    );
+  const handleComplet = (idComplet) => {
+    dispatch({ type: "complete", payload: idComplet });
   };
 
   let sortDatasList = listNote;
