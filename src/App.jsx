@@ -3,17 +3,17 @@ import AddNewNoteForm from "./components/AddNewNoteForm";
 import NoteList from "./components/NoteList";
 import Header from "./components/Header";
 
-function handelReducer(state, action) {
-  switch (action.type) {
+function handelReducer(state, {type , payload}) {
+  switch (type) {
     case "add": {
-      return [...state, action.payload];
+      return [...state, payload];
     }
     case "delete": {
-      return state.filter((item) => item.id !== action.payload);
+      return state.filter((item) => item.id !== payload);
     }
     case "complete": {
       return state.map((item) =>
-        item.id === action.payload
+        item.id === payload
           ? { ...item, complete: !item.complete }
           : item
       );
