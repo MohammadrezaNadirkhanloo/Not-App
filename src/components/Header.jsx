@@ -1,4 +1,8 @@
-function Header({ datas, sortBy, sorthHandle }) {
+import { useNotes } from "../context/NoteContext";
+
+function Header({ sortBy, sorthHandle }) {
+  const datas = useNotes();
+
   const allData = datas.length;
 
   return (

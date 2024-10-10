@@ -1,4 +1,7 @@
-function ShowStatus({ datas }) {
+import { useNotes } from "../context/NoteContext";
+
+function ShowStatus() {
+  const datas = useNotes();
   const allData = datas.length;
   const dataCompleted = datas.filter((item) => item.complete === true).length;
 

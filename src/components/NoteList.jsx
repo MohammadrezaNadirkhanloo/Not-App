@@ -1,19 +1,31 @@
+import { useNotes, useNotesDispatch } from "../context/NoteContext";
 import ShowStatus from "./ShowStatus";
 
-function NoteList({ nots, onDelete, onComplet }) {
+function NoteList({ sortBy }) {
+  const datas = useNotes();
+
+  let sortDatasList = datas;
+  switch (sortBy) {
+    case "1":
+      sortDatasList = [...sortDatasList].sort(
+        (a, b) => new Date(a.createDate) - new Date(b.createDate)
+      );
+      break;
+
+    default:
+      sortDatasList = [...sortDatasList].sort(
+        (a, b) => new Date(b.createDate) - new Date(a.createDate)
+      );
+      break;
+  }
   return (
     <div>
       <div>
-        <ShowStatus datas={nots} />
+        <ShowStatus />
       </div>
       <div>
-        {nots.map((item) => (
-          <ItemNote
-            key={item.id}
-            note={item}
-            onDelete={onDelete}
-            onComplet={onComplet}
-          />
+        {sortDatasList.map((item) => (
+          <ItemNote key={item.id} note={item} />
         ))}
       </div>
     </div>
@@ -22,7 +34,8 @@ function NoteList({ nots, onDelete, onComplet }) {
 
 export default NoteList;
 
-function ItemNote({ note, onDelete, onComplet }) {
+function ItemNote({ note }) {
+  const dispatch = useNotesDispatch();
   return (
     <div className="m-3 border border-2 rounded-4 border_color p-3">
       <div className="d-flex justify-content-between">
@@ -36,7 +49,7 @@ function ItemNote({ note, onDelete, onComplet }) {
         </div>
         <div className="d-flex align-items-center gap-2">
           <button
-            onClick={() => onDelete(note.id)}
+            onClick={() => dispatch({ type: "delete", payload: note.id })}
             className="btn btn-outline-danger border-0"
           >
             <svg
@@ -55,7 +68,11 @@ function ItemNote({ note, onDelete, onComplet }) {
             type="checkbox"
             checked={note.complete}
             id={note.id}
-            onChange={() => onComplet(note.id)}
+            value={note.id}
+            onChange={(e) => {
+              const noteId = Number(e.target.value);
+              dispatch({ type: "complete", payload: noteId });
+            }}
           />
         </div>
       </div>
