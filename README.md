@@ -18,3 +18,5 @@ Your tasks can be filtered ( Lastest - Earliest ) and display the status .
 - Prop
 - control element
 - Context
+- vitest
+- Testing Library
