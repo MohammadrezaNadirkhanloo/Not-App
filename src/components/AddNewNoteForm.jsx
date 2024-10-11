@@ -46,7 +46,7 @@ function AddNewNoteForm() {
             htmlFor="Description"
             className="form-label text_color fw-semibold"
           >
-            Description:
+            Description
           </label>
           <input
             value={description}

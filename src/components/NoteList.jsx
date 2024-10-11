@@ -37,7 +37,12 @@ export default NoteList;
 function ItemNote({ note }) {
   const dispatch = useNotesDispatch();
   return (
-    <div className="m-3 border border-2 rounded-4 border_color p-3">
+    <div
+      data-testid="item"
+      className={`m-3 border border-2 rounded-4 border_color p-3 ${
+        note.complete ? "complete" : ""
+      }`}
+    >
       <div className="d-flex justify-content-between">
         <div
           className={`d-flex flex-column text_color ${
